@@ -24,6 +24,7 @@ async function getNewClient() {
     password: process.env.POSTGRES_PASSWORD,
     ssl: getSSLValues(),
   });
+
   await client.connect();
   return client;
 }
@@ -40,5 +41,5 @@ function getSSLValues() {
     };
   }
 
-  return process.env.NODE_ENV === "productions" ? true : false;
+  return process.env.NODE_ENV === "production" ? true : false;
 }
